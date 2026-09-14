@@ -210,13 +210,16 @@ def analyze_sample(filepath: str) -> dict:
         pe.close()  # 파일 핸들을 명시적으로 닫는다
 
 
-def main():
-    if len(sys.argv) < 3:
-        print("사용법: python extract_features.py <샘플_디렉터리> <출력_csv_경로>")
-        sys.exit(1)
+# 인자 없이 실행할 경우 사용할 기본 경로. 강사 배포 샘플 6개가 저장소의
+# PE_6/ 디렉터리에 포함되어 있으므로, 별도 인자 없이 바로 분석할 수 있도록 한다.
+DEFAULT_SAMPLE_DIR = "PE_6"
+DEFAULT_OUTPUT_CSV = "features.csv"
 
-    sample_dir = sys.argv[1]
-    output_csv = sys.argv[2]
+
+def main():
+    # 인자를 주면 그 경로를 쓰고, 생략하면 기본값(PE_6 -> features.csv)을 사용한다.
+    sample_dir = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_SAMPLE_DIR
+    output_csv = sys.argv[2] if len(sys.argv) > 2 else DEFAULT_OUTPUT_CSV
 
     # 과제 요구사항에 명시된 컬럼 순서 그대로 사용
     columns = [
