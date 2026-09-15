@@ -11,7 +11,11 @@ PE 정적 특징 추출기 작성과 생성형AI 분석 결과 검증.
 | `PE_6/` | 강사가 배포한 PE 샘플 6개(정상 3 / 악성 의심 3)와 해시 목록(`SHA256SUMS.txt`) |
 | `features.csv` | 스크립트 실행 결과 (샘플 6개, 1행/샘플) |
 | `REPORT.md` | 샘플별 판정 근거, 생성형AI 검증 표, 오탐 가능성 논의를 포함한 보고서 |
+| `report.pdf` | 위 보고서의 PDF 판본 (제출용) |
+| `tools/md2pdf.py` | `REPORT.md` 를 `report.pdf` 로 변환하는 스크립트 |
 | `requirements.txt` | 의존 패키지 (`pefile`) |
+
+제출용 3개 파일은 `extract_features.py`, `features.csv`, `report.pdf` 이다.
 
 ## 실행 방법
 
